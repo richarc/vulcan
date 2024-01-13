@@ -1,0 +1,13 @@
+{{template "partials/header" .}}
+<article class="prose px-10">
+    <p>
+        <h1>Click to run the search</h1>
+        <button class="btn btn-primary" hx-get="/search" hx-target="#results" hx-swap="innerHTML">Search</button>
+    </p>
+    <p>
+        <div id="results">
+            <h1>Results Go Here!</h1>
+        </div>
+    </p>
+</article>
+{{template "partials/footer" .}}
