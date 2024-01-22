@@ -3,10 +3,13 @@
     <div id="results">
         <!-- result -->
     </div>
+
     <p>What would you like to say?</p>
     <form hx-post="/send" hx-target="#results" hx-swap="outerHTML">
         <input type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs" name="question"/>
         <button class="btn btn-primary" type="submit">Submit</button>
+        <p class='htmx-indicator'>loading...</p>
     </form>
+
 </article>
 {{template "partials/footer" .}}

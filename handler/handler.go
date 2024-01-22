@@ -28,15 +28,15 @@ func Send(c *fiber.Ctx) error {
 	if err := c.BodyParser(prompt); err != nil {
 		return err
 	}
-	fmt.Println(prompt.Question)
 
 	//call a model with the chat input and get a sttring response
 	msg := fmt.Sprintf(claudePromptFormat, prompt.Question)
+
 	ans, err := model.AskLLM(msg)
 	if err != nil {
 		log.Fatal("Could not get response from LLM", err)
 	}
-	fmt.Println(ans)
-	//convertt the string to map that
+
+	//return the template populating the response
 	return c.Render("send", fiber.Map{"Answer": ans, "Prompt": prompt.Question}, "layouts/main")
 }
